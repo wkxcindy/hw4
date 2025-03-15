@@ -1,12 +1,11 @@
 class PlacesController < ApplicationController
-
   def index
     @places = Place.all
   end
 
   def show
     @place = Place.find_by({ "id" => params["id"] })
-    @entries = Entry.where({ "place_id" => @place["id"] })
+    @entries = Entry.where({ "place_id" => @place["id"], "user_id" => session["user_id"] })  # Only show logged-in user's entries
   end
 
   def new
@@ -18,5 +17,5 @@ class PlacesController < ApplicationController
     @place.save
     redirect_to "/places"
   end
-
 end
+

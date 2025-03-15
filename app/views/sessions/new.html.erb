@@ -1,18 +1,15 @@
-<h1>Login</h1>
+<h1 class="mb-4">Login</h1>
 
-<form action="/sessions" method="post">
-  <p>
-    <label>Email</label>
-    <input type="email" name="email">
-  </p>
+<form action="/sessions" method="post" class="container w-50">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="email" required autocomplete="username" class="form-control">
+  </div>
 
-  <p>
-    <label>Password</label>
-    <input type="password" name="password">
-  </p>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="password" required autocomplete="current-password" class="form-control">
+  </div>
 
-  <button>Login</button>
+  <button type="submit" class="btn btn-primary">Log In</button>
 </form>
-
-<p>Don't have an account? <a href="/signup">Sign Up</a></p>
-

@@ -5,18 +5,21 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new
-    @user["first_name"] = params["first_name"]
-    @user["last_name"] = params["last_name"]
-    @user["email"] = params["email"]
     @user["username"] = params["username"]
-    @user["password"] = params["password"]  # BCrypt automatically hashes this
+    @user["email"] = params["email"]
+    @user.password = params["password"]
 
     if @user.save
-      flash[:notice] = "Thanks for signing up! Please log in."
-      redirect_to "/login"
+      session["user_id"] = @user["id"]  # Log in the new user
+      flash[:notice] = "Account created successfully!"
+      redirect_to "/places"  # Redirect to places instead of login
     else
       flash[:alert] = "Error signing up. Try again."
       render "new"
     end
   end
 end
+
+
+
+
