@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tacostagram Final</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Travel Journal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    
+    <% if session["user_id"] %>
+      <%= link_to "Logout", "/logout", method: :delete %>
+    <% else %>
+      <%= link_to "Login", "/login" %>
+      <%= link_to "Signup", "/signup" %>
+    <% end %>
+  </nav>
 
-    <link rel="stylesheet" href="/stylesheets/application.css">
-  </head>
+  <%= yield %>  <!-- This is where your views are inserted -->
 
-  <body>
-    <div>
-      <%= flash["notice"] %>
-    </div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
-
-    <%= yield %>
-  </body>
+</body>
 </html>

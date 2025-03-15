@@ -1,17 +1,33 @@
-<h1>New User Account</h1>
+<h1>Sign Up</h1>
 
 <form action="/users" method="post">
   <p>
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
+    <label>First Name</label>
+    <input type="text" name="first_name">
   </p>
+
   <p>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
+    <label>Last Name</label>
+    <input type="text" name="last_name">
   </p>
+
   <p>
-    <label for="password">Password</label>
-    <input type="text" name="password" id="password">
+    <label>Email</label>
+    <input type="email" name="email">
   </p>
-  <button>Signup</button>
+
+  <p>
+    <label>Username</label>
+    <input type="text" name="username">
+  </p>
+
+  <p>
+    <label>Password</label>
+    <input type="password" name="password">
+  </p>
+
+  <button>Sign Up</button>
 </form>
+
+<p>Already have an account? <a href="/login">Login</a></p>
+
